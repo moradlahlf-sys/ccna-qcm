@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CCNA QCM — Révision CCNA 1, 2 & 3</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#f0f2f7;--surface:#fff;--surface2:#f4f6fa;--border:#e2e6ef;
+  --text:#1a1d2e;--text2:#5a6080;--text3:#9099b5;
+  --accent:#049fd8;--accent2:#0384b4;
+  --green:#16a34a;--green-bg:#dcfce7;
+  --red:#dc2626;--red-bg:#fee2e2;
+  --orange:#d97706;
+  --ccna1:#049fd8;--ccna2:#7c3aed;--ccna3:#059669;
+  --nav-h:56px;--sb-w:252px;--ad-w:168px;
+  --r:12px;--sh:0 1px 8px rgba(0,0,0,.07);--sh-md:0 4px 20px rgba(0,0,0,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;overflow-x:hidden}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;height:var(--nav-h);background:var(--surface);border-bottom:1px solid var(--border);box-shadow:0 1px 6px rgba(0,0,0,.05);display:flex;align-items:center;padding:0 20px;gap:16px}
+.nav-logo{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:8px;cursor:pointer;white-space:nowrap}
+.nav-logo em{color:var(--text);font-style:normal}
+.nav-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;background:var(--accent);color:#fff}
+.nav-info{font-size:13px;color:var(--text2);display:flex;gap:16px;white-space:nowrap;margin-left:auto}
+.nav-info strong{color:var(--text)}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:var(--sb-w) 1fr var(--ad-w);min-height:calc(100vh - var(--nav-h));max-width:1440px;margin:0 auto}
+
+/* SIDEBAR */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);padding:12px 0;overflow-y:auto;position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h))}
+.sb-head{padding:6px 14px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);display:flex;align-items:center;gap:7px;margin-top:6px}
+.sb-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.sb-item{display:flex;align-items:center;gap:8px;padding:8px 14px 8px 22px;font-size:13px;color:var(--text2);cursor:pointer;transition:all .12s;border-left:3px solid transparent;line-height:1.3}
+.sb-item:hover{background:var(--surface2);color:var(--text)}
+.sb-item.active{background:#e6f6fc;color:var(--accent);border-left-color:var(--accent);font-weight:600}
+.sb-count{margin-left:auto;font-size:11px;color:var(--text3);background:var(--surface2);padding:1px 6px;border-radius:10px;flex-shrink:0}
+.sb-item.active .sb-count{background:#cceef8;color:var(--accent)}
+.sb-div{height:1px;background:var(--border);margin:8px 12px}
+
+/* MAIN */
+.main{padding:20px;min-width:0}
+
+/* AD */
+.ad-col{padding:14px 8px;display:flex;flex-direction:column;gap:14px;border-left:1px solid var(--border);background:var(--surface);position:sticky;top:var(--nav-h);height:calc(100vh - var(--nav-h));overflow-y:auto}
+.ad-slot{width:152px;min-height:280px;background:var(--surface2);border:1.5px dashed var(--border);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;color:var(--text3);font-size:11px;text-align:center;padding:10px}
+.ad-slot-sm{min-height:110px}
+.ad-ico{font-size:22px;opacity:.35}
+.ad-lbl{font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:10px}
+.ad-sz{opacity:.5;font-size:10px}
+
+/* HOME */
+.hero{background:linear-gradient(130deg,#003359 0%,#049fd8 55%,#6cc04a 100%);border-radius:var(--r);padding:36px 40px;color:#fff;margin-bottom:24px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50px;right:-50px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:8px;position:relative}
+.hero p{opacity:.85;font-size:15px;max-width:480px;margin-bottom:22px;position:relative}
+.hero-nums{display:flex;gap:28px;position:relative}
+.hero-num-val{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700}
+.hero-num-lbl{font-size:11px;opacity:.7;text-transform:uppercase;letter-spacing:.05em}
+.ccna-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+.ccna-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:22px;cursor:pointer;transition:all .18s;box-shadow:var(--sh)}
+.ccna-card:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--accent)}
+.cc-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;margin-bottom:12px}
+.ccna-card h3{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin-bottom:3px}
+.ccna-card p{font-size:12.5px;color:var(--text2)}
+.cc-meta{margin-top:14px;display:flex;gap:14px}
+.cc-stat{font-size:12px;color:var(--text3)}
+.cc-stat strong{color:var(--text);font-weight:600}
+
+/* MODULE LIST */
+.breadcrumb{display:flex;align-items:center;gap:5px;font-size:12.5px;color:var(--text3);margin-bottom:14px}
+.breadcrumb a{color:var(--accent);cursor:pointer}
+.breadcrumb a:hover{text-decoration:underline}
+.pg-head{margin-bottom:20px}
+.pg-head h2{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700}
+.pg-head p{color:var(--text2);font-size:13px;margin-top:3px}
+.mod-list{display:flex;flex-direction:column;gap:10px}
+.mod-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:18px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all .15s;box-shadow:var(--sh)}
+.mod-card:hover{border-color:var(--accent);box-shadow:var(--sh-md);transform:translateX(3px)}
+.mod-icon{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px}
+.mod-card h3{font-size:14.5px;font-weight:600;margin-bottom:3px}
+.mod-card p{font-size:12.5px;color:var(--text2)}
+.mod-arrow{margin-left:auto;font-size:18px;color:var(--text3)}
+
+/* QUIZ TOPBAR */
+
+
+/* PILL NAV avec flèches */
+.pill-nav{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.pill-arr{width:28px;height:28px;border-radius:7px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text2);flex-shrink:0;cursor:pointer;transition:all .12s;background:var(--surface);line-height:1}
+.pill-arr:hover:not([disabled]){border-color:var(--accent);color:var(--accent)}
+.pill-arr[disabled]{opacity:.3;cursor:default}
+.pill-track{flex:1;overflow:hidden}
+.pill-inner{display:flex;gap:5px;align-items:center}
+.pill{padding:5px 10px;border-radius:7px;font-size:12px;font-weight:600;border:1.5px solid var(--border);color:var(--text2);cursor:pointer;transition:all .12s;background:var(--surface);white-space:nowrap;flex-shrink:0}
+.pill:hover{border-color:var(--accent);color:var(--accent)}
+.p-active{background:var(--accent)!important;color:#fff!important;border-color:var(--accent)!important}
+.p-correct{background:var(--green)!important;color:#fff!important;border-color:var(--green)!important}
+.p-wrong{background:var(--red)!important;color:#fff!important;border-color:var(--red)!important}
+.p-results{background:var(--green)!important;color:#fff!important;border-color:var(--green)!important;padding:5px 13px!important}
+.p-results:hover{background:#15803d!important}
+
+/* PROGRESS BAR */
+.prog-bar{height:3px;background:var(--border);border-radius:2px;margin-bottom:20px;overflow:hidden}
+.prog-fill{height:100%;border-radius:2px;transition:width .3s ease}
+
+/* QUESTION CARD */
+.q-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:24px 28px;box-shadow:var(--sh)}
+.q-num{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.q-text{font-size:15.5px;font-weight:500;line-height:1.65;margin-bottom:18px}
+.q-img{width:100%;max-width:480px;border-radius:8px;margin-bottom:14px;border:1px solid var(--border);display:block}
+.q-tag{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:#fef3c7;color:var(--orange);margin-bottom:14px}
+
+/* CHOICES */
+.choices{display:flex;flex-direction:column;gap:8px}
+.choice{display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;border:1.5px solid var(--border);cursor:pointer;transition:all .12s;background:var(--surface);font-size:14px;line-height:1.4;user-select:none;text-align:left;width:100%}
+.choice:hover:not(.locked){border-color:var(--accent);background:#e6f6fc}
+.c-sel{border-color:var(--accent)!important;background:#049fd8!important;color:#fff!important}
+.c-correct{border-color:var(--green)!important;background:var(--green)!important;color:#fff!important}
+.c-wrong{border-color:var(--red)!important;background:var(--red)!important;color:#fff!important}
+.c-miss{border-color:var(--green)!important;background:var(--green-bg)!important;color:var(--green)!important;font-weight:600!important}
+.ch-icon{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--surface2);border:1.5px solid var(--border);color:var(--text2)}
+.c-sel .ch-icon,.c-correct .ch-icon,.c-wrong .ch-icon{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.4);color:#fff}
+.c-miss .ch-icon{background:#bbf7d0;border-color:var(--green);color:var(--green)}
+.ch-txt{flex:1;text-align:left}
+
+/* FEEDBACK */
+.feedback{margin-top:12px;padding:14px 16px;border-radius:10px;font-size:13.5px;line-height:1.6}
+.fb-correct{background:var(--green-bg);border:1px solid #bbf7d0;color:#14532d}
+.fb-wrong{background:var(--red-bg);border:1px solid #fecaca;color:#7f1d1d}
+.fb-info{background:#e6f6fc;border:1px solid #99ddf4;color:#1e3a8a}
+.fb-lbl{font-weight:700;margin-bottom:4px}
+
+/* ACTIONS */
+.q-actions{display:flex;gap:10px;margin-top:16px;justify-content:flex-end}
+.q-actions-top{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.btn-skip{background:var(--surface2);color:var(--text2);border:1.5px solid var(--border);padding:7px 14px;border-radius:9px;font-size:13px;font-weight:600;cursor:pointer;transition:all .12s}
+.btn-skip:hover{border-color:var(--orange);color:var(--orange)}
+.timer-box{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1.5px solid var(--border);border-radius:9px;padding:6px 12px;font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;margin-left:auto;cursor:pointer;transition:all .12s;user-select:none}
+.timer-box:hover{border-color:var(--accent);color:var(--accent)}
+.timer-ico{font-size:13px;opacity:.7}
+.btn{padding:9px 20px;border-radius:9px;font-size:13.5px;font-weight:600;cursor:pointer;transition:all .12s;display:inline-flex;align-items:center;gap:7px;border:none}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--accent2)}
+.btn-outline{background:var(--surface);color:var(--text);border:1.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:#15803d}
+
+/* RESULTS */
+.res-card{background:var(--surface);border-radius:var(--r);border:1px solid var(--border);padding:36px;text-align:center;box-shadow:var(--sh);margin-bottom:20px}
+.gauge{position:relative;width:160px;height:92px;margin:0 auto 16px}
+.gauge svg{width:160px;height:92px;overflow:visible}
+.gauge-lbl{position:absolute;bottom:0;left:50%;transform:translateX(-50%);font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700}
+.res-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.res-sub{color:var(--text2);font-size:14px;max-width:500px;margin:0 auto 22px}
+.res-stats{display:flex;justify-content:center;gap:36px;margin-bottom:24px}
+.res-stat-val{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:700}
+.res-stat-lbl{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.05em}
+.res-btns{display:flex;gap:10px;justify-content:center}
+
+/* PILLS RÉSULTATS (wrap) */
+.pill-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:12px;margin-bottom:14px;display:flex;flex-wrap:wrap;gap:5px}
+
+.page{animation:fadeUp .18s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:1100px){:root{--ad-w:0px}.ad-col{display:none}.layout{grid-template-columns:var(--sb-w) 1fr}}
+@media(max-width:700px){.sidebar{display:none}.layout{grid-template-columns:1fr}.ccna-grid{grid-template-columns:1fr}.q-card{padding:18px}.hero{padding:24px}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo" onclick="showHome()">🌐 <em>CCNA</em> QCM <span class="nav-badge">v7</span></div>
+  <div class="nav-info">
+    <span><strong>1409</strong> questions</span>
+    <span><strong>23</strong> modules</span>
+    <span><strong>CCNA 1·2·3</strong></span>
+  </div>
+</nav>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main" id="main"></main>
+  <div class="ad-col">
+    <div class="ad-slot"><div class="ad-ico">📢</div><div class="ad-lbl">Publicité</div><div class="ad-sz">160 × 280</div></div>
+    <div class="ad-slot ad-slot-sm"><div class="ad-ico">📢</div><div class="ad-lbl">Publicité</div><div class="ad-sz">160 × 110</div></div>
+    <div class="ad-slot"><div class="ad-ico">📢</div><div class="ad-lbl">Publicité</div><div class="ad-sz">160 × 280</div></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+/* ── STATE ── */
+let modIdx = null, questions = [], answers = {}, locked = {}, qIdx = 0, pillOff = 0;
+let shuffledChoices = {}; // {qIdx: [choix mélangés]}
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+function buildShuffledChoices(){
+  // Mélanger l'ordre des questions
+  questions = shuffle(questions);
+  // Mélanger l'ordre des choix pour chaque question
+  shuffledChoices={};
+  questions.forEach((q,i)=>{ shuffledChoices[i]=shuffle(q.choix); });
+}
+let timerInterval = null, timerSeconds = 0, timerVisible = true, quizStartTime = null;
+
+function startTimer(){
+  timerSeconds = 0; quizStartTime = Date.now();
+  clearInterval(timerInterval);
+  timerInterval = setInterval(()=>{ timerSeconds++; updateTimerDisplay(); }, 1000);
+}
+function stopTimer(){ clearInterval(timerInterval); timerInterval = null; }
+function fmtTime(s){ const m=Math.floor(s/60),sec=s%60; return `${String(m).padStart(2,'0')}:${String(sec).padStart(2,'0')}`; }
+function updateTimerDisplay(){
+  const el = document.getElementById('timerVal');
+  if(el) el.textContent = fmtTime(timerSeconds);
+}
+function toggleTimer(){
+  timerVisible = !timerVisible;
+  const el = document.getElementById('timerVal');
+  const btn = document.getElementById('timerToggle');
+  if(el){ el.style.opacity = timerVisible ? '1' : '0'; el.style.width = timerVisible ? 'auto' : '0'; el.style.overflow = timerVisible ? 'visible' : 'hidden'; }
+  if(btn) btn.textContent = timerVisible ? '🙈' : '⏱️';
+}
+const PVIS = 10; // pills visibles
+
+/* ── SIDEBAR ── */
+function buildSidebar() {
+  const g={ccna1:[],ccna2:[],ccna3:[]};
+  CCNA_DATA.forEach((m,i)=>g[m.ccna].push({...m,idx:i}));
+  const cfg={
+    ccna1:{label:'CCNA 1 — ITN v7',color:'#049fd8'},
+    ccna2:{label:'CCNA 2 — SRWE v7',color:'#7c3aed'},
+    ccna3:{label:'CCNA 3 — ENSA v7',color:'#059669'},
+  };
+  let h='';
+  for(const v of['ccna1','ccna2','ccna3']){
+    const c=cfg[v];
+    h+=`<div class="sb-head"><div class="sb-dot" style="background:${c.color}"></div>${c.label}</div>`;
+    for(const m of g[v]){
+      const s=m.nom.replace(/CCNA[123] - /,'');
+      h+=`<div class="sb-item" id="sb-${m.idx}" onclick="openMod(${m.idx})"><span style="flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${s}</span><span class="sb-count">${m.questions.length}</span></div>`;
+    }
+    h+=`<div class="sb-div"></div>`;
+  }
+  document.getElementById('sidebar').innerHTML=h;
+}
+function sbActive(i){
+  document.querySelectorAll('.sb-item').forEach(e=>e.classList.remove('active'));
+  const el=document.getElementById('sb-'+i);
+  if(el){el.classList.add('active');el.scrollIntoView({block:'nearest'});}
+}
+
+/* ── HOME ── */
+function showHome(){
+  modIdx=null; sbActive(-1);
+  const cfg={
+    ccna1:{label:'CCNA 1 — ITN v7',desc:'Introduction aux réseaux',color:'#049fd8',icon:'🖥️'},
+    ccna2:{label:'CCNA 2 — SRWE v7',desc:'Commutation, routage, sans fil',color:'#7c3aed',icon:'🔀'},
+    ccna3:{label:'CCNA 3 — ENSA v7',desc:'Entreprise, sécurité, automatisation',color:'#059669',icon:'🔒'},
+  };
+  const qc={ccna1:0,ccna2:0,ccna3:0},mc={ccna1:0,ccna2:0,ccna3:0};
+  CCNA_DATA.forEach(m=>{qc[m.ccna]+=m.questions.length;mc[m.ccna]++;});
+  const tot=CCNA_DATA.reduce((s,m)=>s+m.questions.length,0);
+  let cards='';
+  for(const v of['ccna1','ccna2','ccna3']){
+    const c=cfg[v];
+    cards+=`<div class="ccna-card" onclick="showCcna('${v}')">
+      <div class="cc-icon" style="background:${c.color}">${c.icon}</div>
+      <h3>${c.label}</h3><p>${c.desc}</p>
+      <div class="cc-meta">
+        <span class="cc-stat"><strong>${qc[v]}</strong> questions</span>
+        <span class="cc-stat"><strong>${mc[v]}</strong> modules</span>
+      </div>
+    </div>`;
+  }
+  render(`<div class="page">
+    <div class="hero">
+      <h1>🎓 Révision CCNA</h1>
+      <p>Questions d'examen Cisco NetAcad v7 — CCNA 1, 2 &amp; 3 en français</p>
+      <div class="hero-nums">
+        <div><div class="hero-num-val">${tot}</div><div class="hero-num-lbl">Questions</div></div>
+        <div><div class="hero-num-val">23</div><div class="hero-num-lbl">Modules</div></div>
+        <div><div class="hero-num-val">3</div><div class="hero-num-lbl">Cours</div></div>
+      </div>
+    </div>
+    <div class="ccna-grid">${cards}</div>
+  </div>`);
+}
+
+/* ── CCNA LIST ── */
+function showCcna(v){
+  const labels={ccna1:'CCNA 1 — ITN v7',ccna2:'CCNA 2 — SRWE v7',ccna3:'CCNA 3 — ENSA v7'};
+  const colors={ccna1:'#049fd8',ccna2:'#7c3aed',ccna3:'#059669'};
+  const icons=['📡','🔧','🌐','📶','🔒','📝','🏆','⚙️'];
+  const mods=CCNA_DATA.filter(m=>m.ccna===v);
+  let rows='';
+  mods.forEach((m,i)=>{
+    const gi=CCNA_DATA.indexOf(m);
+    rows+=`<div class="mod-card" onclick="openMod(${gi})">
+      <div class="mod-icon" style="background:${colors[v]}22;color:${colors[v]}">${icons[i%icons.length]}</div>
+      <div><h3>${m.nom.replace(/CCNA[123] - /,'')}</h3><p>${m.questions.length} question${m.questions.length>1?'s':''}</p></div>
+      <span class="mod-arrow">›</span>
+    </div>`;
+  });
+  render(`<div class="page">
+    <div class="breadcrumb"><a onclick="showHome()">Accueil</a> <span>›</span> <span>${labels[v]}</span></div>
+    <div class="pg-head"><h2>${labels[v]}</h2><p>Choisissez un module pour démarrer</p></div>
+    <div class="mod-list">${rows}</div>
+  </div>`);
+}
+
+/* ── QUIZ ── */
+function openMod(i){
+  modIdx=i; questions=CCNA_DATA[i].questions;
+  answers={}; locked={}; qIdx=0; pillOff=0;
+  timerSeconds=0; timerVisible=true;
+  buildShuffledChoices();
+  sbActive(i); startTimer(); renderQuiz();
+}
+
+function renderQuiz(){
+  const m=CCNA_DATA[modIdx];
+  const total=questions.length;
+  const ansCount=Object.keys(locked).length;
+  const q=questions[qIdx];
+  const isMulti=q.type==='choix_multiples'||q.bonnes_reponses.length>1;
+  const isLocked=!!locked[qIdx];
+  const sel=answers[qIdx]||[];
+  const color={ccna1:'#049fd8',ccna2:'#7c3aed',ccna3:'#059669'}[m.ccna];
+
+  /* Pill offset: garder la question active visible */
+  if(qIdx<pillOff) pillOff=qIdx;
+  if(qIdx>=pillOff+PVIS) pillOff=qIdx-PVIS+1;
+  pillOff=Math.max(0,Math.min(pillOff,Math.max(0,total-PVIS)));
+
+  // Pills: seulement les questions déjà répondues + la courante
+  // La fenêtre glisse pour garder la question active visible
+  const maxVisible = questions.length; // toutes visibles potentiellement
+  // Compter les pills affichables = questions déjà faites + question courante
+  const lastReached = Math.max(qIdx, ...Object.keys(locked).map(Number), 0);
+  
+  // Fenêtre glissante centrée sur qIdx
+  const PVIS2 = 12;
+  if(qIdx < pillOff) pillOff = qIdx;
+  if(qIdx >= pillOff + PVIS2) pillOff = qIdx - PVIS2 + 1;
+  pillOff = Math.max(0, Math.min(pillOff, Math.max(0, (lastReached+1) - PVIS2)));
+
+  const canL = pillOff > 0;
+  const canR = pillOff + PVIS2 <= lastReached;
+
+  /* Pills: seulement jusqu'à lastReached inclus */
+  let ph='';
+  const end = Math.min(pillOff + PVIS2, lastReached + 1);
+  for(let i=pillOff; i<end; i++){
+    let cls='pill';
+    if(i===qIdx) cls+=' p-active';
+    else if(locked[i]) cls+=correct(i)===true?' p-correct':' p-wrong';
+    ph+=`<button class="${cls}" onclick="goQ(${i})">Q${i+1}</button>`;
+  }
+  // Bouton résultats seulement si toutes les questions ont été atteintes
+  const showResultsBtn = lastReached >= total - 1;
+  if(showResultsBtn){
+    ph+=`<button class="pill p-results" onclick="showResults()">Résultats</button>`;
+  }
+
+  /* Choix */
+  let ch='';
+  const orderedChoices = shuffledChoices[qIdx] || q.choix;
+  orderedChoices.forEach((c,ci)=>{
+    const isSel=sel.includes(c), isGood=q.bonnes_reponses.includes(c);
+    let cls='choice'+(isLocked?' locked':'');
+    let ico=String.fromCharCode(65+ci);
+    if(isLocked){
+      if(isSel&&isGood){cls+=' c-correct';ico='✓';}
+      else if(isSel){cls+=' c-wrong';ico='✗';}
+      else if(isGood&&q.bonnes_reponses.length>0){cls+=' c-miss';ico='✓';}
+    } else {
+      if(isSel) cls+=' c-sel';
+    }
+    ch+=`<button class="${cls}" onclick="pick(${ci},${isLocked})">
+      <span class="ch-icon">${ico}</span><span class="ch-txt">${c}</span>
+    </button>`;
+  });
+
+  /* Feedback */
+  let fb='';
+  if(isLocked){
+    const cor=correct(qIdx);
+    let cls='fb-info', lbl='ℹ️ Information', extra='';
+    if(q.bonnes_reponses.length>0){
+      if(cor===true){cls='fb-correct';lbl='✅ Bonne réponse !';}
+      else{
+        cls='fb-wrong';lbl='❌ Mauvaise réponse';
+        extra=`<div style="margin-top:5px">✔️ Bonne réponse : <strong>${q.bonnes_reponses.join(', ')}</strong></div>`;
+      }
+    }
+    const expl=q.explication.trim();
+    fb=`<div class="feedback ${cls}">
+      <div class="fb-lbl">${lbl}</div>
+      ${extra}
+      ${expl?`<div style="margin-top:${extra?'6':'0'}px;opacity:.9">${expl}</div>`:''}
+    </div>`;
+  }
+
+  /* Actions */
+  // Barre du haut (navigation + timer) - toujours affichée
+  const isLast=qIdx===total-1;
+  const actTop=`<div class="q-actions-top">
+    ${!isLocked
+      ? `<button class="btn-skip" onclick="skipQ()">⏭ Ignorer</button>`
+      : `<span style="font-size:13px;font-weight:600;color:var(--text2)">Q${qIdx+1}/${total}</span>`}
+    ${!isLast
+      ? `<button class="btn btn-primary" style="margin-left:${isLocked?'auto':'0'}" onclick="nextQ()">Suivante →</button>`
+      : `<button class="btn btn-green" style="margin-left:${isLocked?'auto':'0'}" onclick="showResults()">🏆 Résultats</button>`}
+    <div class="timer-box" onclick="toggleTimer()" id="timerBox">
+      <span class="timer-ico">⏱️</span>
+      <span id="timerVal">${fmtTime(timerSeconds)}</span>
+      <span id="timerToggle" style="font-size:11px;opacity:.5">🙈</span>
+    </div>
+  </div>`;
+  const act=''; // plus de bouton Valider en bas
+
+  const prog=(ansCount/total*100).toFixed(0);
+
+  renderInPlace(`<div class="page">
+    <div class="pill-nav">
+      <button class="pill-arr" onclick="shiftP(-1)" ${canL?'':'disabled'}>‹</button>
+      <div class="pill-track"><div class="pill-inner">${ph}</div></div>
+      <button class="pill-arr" onclick="shiftP(1)" ${canR?'':'disabled'}>›</button>
+      <span style="margin-left:6px;font-size:12px;color:var(--text3);white-space:nowrap;flex-shrink:0">${ansCount}/${total}</span>
+    </div>
+    <div class="prog-bar"><div class="prog-fill" style="width:${prog}%;background:${color}"></div></div>
+    ${actTop}
+    <div class="q-card">
+      <div class="q-num" style="color:${color}">Question ${qIdx+1} / ${total}</div>
+      ${q.image?`<img src="${q.image}" class="q-img" alt="" onerror="this.style.display='none'"/>`:'' }
+      ${isMulti?`<div class="q-tag">🔢 Plusieurs réponses possibles</div>`:''}
+      <div class="q-text">${q.question}</div>
+      <div class="choices">${ch}</div>
+      ${fb}
+    </div>
+  </div>`);
+}
+
+function shiftP(d){const last=Math.max(qIdx,...Object.keys(locked).map(Number),0);pillOff=Math.max(0,Math.min(pillOff+d,Math.max(0,(last+1)-12)));renderQuiz();}
+function goQ(i){qIdx=i;renderQuiz();}
+function pick(ci,isL){
+  if(isL)return;
+  const q=questions[qIdx];
+  const isMulti=q.type==='choix_multiples'||q.bonnes_reponses.length>1;
+  const ch=(shuffledChoices[qIdx]||q.choix)[ci];
+  if(!answers[qIdx])answers[qIdx]=[];
+  const a=answers[qIdx];
+  if(isMulti){
+    const p=a.indexOf(ch); p===-1?a.push(ch):a.splice(p,1);
+    // Pour choix multiples: verrouiller quand le bon nombre de réponses est sélectionné
+    if(q.bonnes_reponses.length>0 && a.length===q.bonnes_reponses.length){
+      locked[qIdx]=true;
+    }
+  } else {
+    answers[qIdx]=[ch];
+    locked[qIdx]=true; // verrouiller immédiatement pour QCM simple
+  }
+  renderQuiz();
+}
+function skipQ(){
+  if(!answers[qIdx])answers[qIdx]=[];
+  locked[qIdx]='skipped';
+  nextQ();
+}
+function nextQ(){if(qIdx<questions.length-1){qIdx++;renderQuiz();}}
+function correct(i){
+  if(locked[i]==='skipped')return null;
+  const q=questions[i];
+  if(!q.bonnes_reponses.length)return null;
+  const s=[...(answers[i]||[])].sort();
+  const g=[...q.bonnes_reponses].sort();
+  if(!s.length)return false;
+  return JSON.stringify(s)===JSON.stringify(g);
+}
+
+/* ── RESULTS ── */
+function showResults(){
+  stopTimer();
+  const finalTime=timerSeconds;
+  const total=questions.length, m=CCNA_DATA[modIdx];
+  let ok=0,ko=0,skip=0;
+  for(let i=0;i<total;i++){
+    if(!locked[i]){skip++;continue;}
+    if(locked[i]==='skipped'){skip++;continue;}
+    const r=correct(i);
+    if(r===true)ok++; else if(r===false)ko++; else skip++;
+  }
+  const eval_=ok+ko;
+  const score=eval_>0?Math.round(ok/eval_*100):0;
+  const sc=score>=70?'#16a34a':score>=50?'#d97706':'#dc2626';
+  const msg=score>=70?'🎉 Félicitations, vous avez réussi !':score>=50?'📚 Continuez vos révisions !':
+    'Relisez le module et réessayez. Vous pouvez cliquer sur chaque question pour la revoir.';
+
+  const R=60,circ=Math.PI*R,dash=(score/100)*circ;
+
+  /* Pills résultats (wrap complet) */
+  let pr='';
+  for(let i=0;i<total;i++){
+    let cls='pill';
+    if(locked[i])cls+=correct(i)===true?' p-correct':' p-wrong';
+    pr+=`<button class="${cls}" onclick="goQ(${i});renderQuiz()"}>Q${i+1}</button>`;
+  }
+  pr+=`<button class="pill p-results" style="cursor:default">Résultats</button>`;
+
+  render(`<div class="page">
+    <div class="pill-wrap">${pr}</div>
+    <div class="res-card">
+      <div class="gauge">
+        <svg viewBox="0 0 160 90">
+          <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="#e5e7eb" stroke-width="12" stroke-linecap="round"/>
+          <path d="M 20 80 A 60 60 0 0 1 140 80" fill="none" stroke="${sc}" stroke-width="12"
+            stroke-linecap="round" stroke-dasharray="${dash} ${circ}"/>
+        </svg>
+        <div class="gauge-lbl" style="color:${sc}">${score}%</div>
+      </div>
+      <div class="res-title">Vous avez obtenu <span style="color:${sc}">${score}%</span>.</div>
+      <div class="res-sub">${msg}</div>
+      <div class="res-stats">
+        <div class="res-stat"><div class="res-stat-val" style="color:var(--green)">${ok}</div><div class="res-stat-lbl">Correctes</div></div>
+        <div class="res-stat"><div class="res-stat-val" style="color:var(--red)">${ko}</div><div class="res-stat-lbl">Incorrectes</div></div>
+        <div class="res-stat"><div class="res-stat-val" style="color:var(--text2)">${skip}</div><div class="res-stat-lbl">Passées</div></div>
+        <div class="res-stat"><div class="res-stat-val" style="color:var(--accent);font-size:20px">${fmtTime(finalTime)}</div><div class="res-stat-lbl">Temps total</div></div>
+      </div>
+      <div class="res-btns">
+        <button class="btn btn-primary" onclick="retry()">🔄 Réessayer</button>
+        <button class="btn btn-outline" onclick="showCcna('${m.ccna}')">← Modules</button>
+      </div>
+    </div>
+  </div>`);
+}
+
+function retry(){answers={};locked={};qIdx=0;pillOff=0;timerSeconds=0;buildShuffledChoices();startTimer();renderQuiz();}
+
+function render(html){
+  const el=document.getElementById('main');
+  el.innerHTML=html;
+  el.scrollTop=0;
+  window.scrollTo(0,0);
+}
+function renderInPlace(html){
+  // Re-render sans scroll - pour les interactions quiz
+  const el=document.getElementById('main');
+  const scrollY=window.scrollY;
+  el.innerHTML=html;
+  window.scrollTo(0,scrollY);
+}
+
+// Filtrer les examens blancs finaux (modifier le tableau en place)
+for(let i=CCNA_DATA.length-1;i>=0;i--){
+  if(CCNA_DATA[i].nom.includes('Examen blanc final')) CCNA_DATA.splice(i,1);
+}
+buildSidebar();
+showHome();
+</script>
+</body>
+</html>
