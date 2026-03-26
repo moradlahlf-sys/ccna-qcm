@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — CCNA QCM</title>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://ccna-reponses.fr/contact.html"/>
+<style>
+  body{font-family:'Segoe UI',sans-serif;max-width:600px;margin:40px auto;padding:0 20px;color:#1a1d2e;line-height:1.7}
+  h1{color:#049fd8;font-size:28px;margin-bottom:8px}
+  a{color:#049fd8}
+  .back{display:inline-block;margin-bottom:24px;color:#049fd8;text-decoration:none;font-weight:600}
+  .back:hover{text-decoration:underline}
+  form{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+  input,textarea{padding:12px;border:1.5px solid #e2e6ef;border-radius:8px;font-family:inherit;font-size:14px;color:#1a1d2e;outline:none;transition:border .2s}
+  input:focus,textarea:focus{border-color:#049fd8}
+  textarea{min-height:140px;resize:vertical}
+  button{background:#049fd8;color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:background .2s}
+  button:hover{background:#0384b4}
+  .success{background:#dcfce7;border:1px solid #bbf7d0;color:#14532d;padding:14px;border-radius:8px;display:none}
+</style>
+</head>
+<body>
+<a href="/" class="back">← Retour au site</a>
+<h1>Contact</h1>
+<p>Une question, une erreur dans une question, ou une suggestion ? N'hésitez pas à nous écrire.</p>
+
+<form id="contactForm">
+  <input type="text" name="name" placeholder="Votre nom" required/>
+  <input type="email" name="email" placeholder="Votre email" required/>
+  <input type="text" name="subject" placeholder="Sujet"/>
+  <textarea name="message" placeholder="Votre message..." required></textarea>
+  <button type="submit">Envoyer le message</button>
+</form>
+<div class="success" id="success">✅ Message envoyé ! Nous vous répondrons dans les plus brefs délais.</div>
+
+<script>
+// Utilise Formspree - gratuit jusqu'à 50 messages/mois
+// Remplace XXXXXXXX par ton ID Formspree (formspree.io)
+document.getElementById('contactForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const data = new FormData(this);
+  try {
+    const r = await fetch('https://formspree.io/f/XXXXXXXX', {
+      method: 'POST', body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if(r.ok){
+      this.style.display='none';
+      document.getElementById('success').style.display='block';
+    }
+  } catch(err) {
+    alert('Erreur lors de l\'envoi. Réessayez.');
+  }
+});
+</script>
+</body>
+</html>
