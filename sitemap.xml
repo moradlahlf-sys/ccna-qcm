@@ -4,16 +4,141 @@
     <loc>https://ccna-reponses.fr/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <lastmod>2025-03-26</lastmod>
+    <lastmod>2026-03-28</lastmod>
   </url>
   <url>
     <loc>https://ccna-reponses.fr/politique-de-confidentialite.html</loc>
     <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.2</priority>
   </url>
   <url>
     <loc>https://ccna-reponses.fr/mentions-legales.html</loc>
     <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/contact.html</loc>
+    <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-modules-1-3.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-modules-4-7.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-modules-8-10.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-modules-11-13.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-modules-14-15.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-modules-16-17.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna1-examen-final-du-cours.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna2-modules-1-4.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna2-modules-5-6.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna2-modules-7-9.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna2-modules-10-13.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna2-modules-14-16.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna2-examen-final-du-cours.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-modules-1-2.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-modules-3-5.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-modules-6-8.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-modules-9-12.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-modules-13-14.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-examen-final-du-cours.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
+  </url>
+  <url>
+    <loc>https://ccna-reponses.fr/ccna3-examen-blanc-certification-200-301.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2026-03-28</lastmod>
   </url>
 </urlset>

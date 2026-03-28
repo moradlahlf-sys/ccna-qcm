@@ -3,7 +3,58 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>CCNA QCM — Révision CCNA 1, 2 & 3</title>
+<title>CCNA QCM — 1400+ Questions de Révision CCNA 1, 2 & 3 en Français</title>
+<meta name="description" content="Révisez le CCNA gratuitement avec plus de 1400 questions d'examen corrigées en français. QCM interactifs pour CCNA 1 (ITN), CCNA 2 (SRWE) et CCNA 3 (ENSA) — Cisco NetAcad v7."/>
+<meta name="keywords" content="QCM CCNA, révision CCNA, examen CCNA français, questions CCNA, Cisco NetAcad, ITN v7, SRWE v7, ENSA v7, CCNA 1, CCNA 2, CCNA 3, certification Cisco, réseaux informatiques"/>
+<meta name="author" content="CCNA QCM"/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://ccna-reponses.fr/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="CCNA QCM — 1400+ Questions de Révision en Français"/>
+<meta property="og:description" content="Révisez le CCNA gratuitement avec plus de 1400 questions corrigées. CCNA 1, 2 & 3 — Cisco NetAcad v7 en français."/>
+<meta property="og:url" content="https://ccna-reponses.fr/"/>
+<meta property="og:locale" content="fr_FR"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CCNA QCM — 1400+ Questions de Révision en Français"/>
+<meta name="twitter:description" content="Révisez le CCNA gratuitement avec plus de 1400 questions corrigées en français."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "CCNA QCM",
+  "url": "https://ccna-reponses.fr",
+  "description": "QCM interactifs pour réviser le CCNA en français — CCNA 1, 2 & 3",
+  "inLanguage": "fr-FR",
+  "publisher": {
+    "@type": "Organization",
+    "name": "CCNA QCM"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment réviser le CCNA en français ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Utilisez nos QCM interactifs couvrant tous les modules CCNA 1, 2 et 3 du cursus Cisco NetAcad v7 avec plus de 1400 questions corrigées."
+      }
+    },
+    {
+      "@type": "Question", 
+      "name": "Les questions CCNA sont-elles gratuites ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, toutes les questions de révision CCNA sont entièrement gratuites sur notre site."
+      }
+    }
+  ]
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
@@ -173,6 +224,14 @@ nav{position:sticky;top:0;z-index:200;height:var(--nav-h);background:var(--surfa
 @media(max-width:1100px){:root{--ad-w:0px}.ad-col{display:none}.layout{grid-template-columns:var(--sb-w) 1fr}}
 @media(max-width:700px){.sidebar{display:none}.layout{grid-template-columns:1fr}.ccna-grid{grid-template-columns:1fr}.q-card{padding:18px}.hero{padding:24px}}
 </style>
+<!-- Google Analytics GA4 - Remplace G-XXXXXXXXXX par ton ID -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 </head>
 <body>
 
@@ -311,9 +370,16 @@ function showCcna(v){
   let rows='';
   mods.forEach((m,i)=>{
     const gi=CCNA_DATA.indexOf(m);
+    const sl=m.nom.toLowerCase()
+      .replace(/ccna[123] - /,'')
+      .replace(/[éèê]/g,'e').replace(/[àâ]/g,'a').replace(/ç/g,'c').replace(/[îï]/g,'i').replace(/[ôö]/g,'o').replace(/[ùûü]/g,'u')
+      .replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
     rows+=`<div class="mod-card" onclick="openMod(${gi})">
       <div class="mod-icon" style="background:${colors[v]}22;color:${colors[v]}">${icons[i%icons.length]}</div>
-      <div><h3>${m.nom.replace(/CCNA[123] - /,'')}</h3><p>${m.questions.length} question${m.questions.length>1?'s':''}</p></div>
+      <div style="flex:1">
+        <h3>${m.nom.replace(/CCNA[123] - /,'')}</h3>
+        <p>${m.questions.length} question${m.questions.length>1?'s':''} &nbsp;·&nbsp; <a href="/${sl}.html" onclick="event.stopPropagation()" style="color:${colors[v]};font-size:12px;text-decoration:none" title="Voir toutes les questions et réponses">📄 Q&amp;R</a></p>
+      </div>
       <span class="mod-arrow">›</span>
     </div>`;
   });
@@ -573,5 +639,11 @@ for(let i=CCNA_DATA.length-1;i>=0;i--){
 buildSidebar();
 showHome();
 </script>
+  <footer style="text-align:center;padding:20px;font-size:12px;color:#9099b5;border-top:1px solid #e2e6ef;margin-top:20px;background:#fff">
+    <span>© 2025 CCNA QCM — Questions Cisco NetAcad v7</span> &nbsp;·&nbsp;
+    <a href="/politique-de-confidentialite.html" style="color:#049fd8">Politique de confidentialité</a> &nbsp;·&nbsp;
+    <a href="/mentions-legales.html" style="color:#049fd8">Mentions légales</a> &nbsp;·&nbsp;
+    <a href="/contact.html" style="color:#049fd8">Contact</a>
+  </footer>
 </body>
 </html>
